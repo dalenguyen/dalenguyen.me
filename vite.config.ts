@@ -7,6 +7,7 @@ const posts = fs.readdirSync('./src/content');
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  root: '',
   build: {
     target: ['es2020'],
   },

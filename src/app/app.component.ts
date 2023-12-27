@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component';
-import { FooterComponent } from './libs/shell/footer/footer.component';
 import { StyleClassModule } from 'primeng/styleclass';
+import { FooterComponent } from './libs/shell/footer/footer.component';
+import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ import { StyleClassModule } from 'primeng/styleclass';
         >
           <i class="pi pi-bars text-4xl"></i>
         </a>
-        <app-sidebar class=" lg:block" />
+        <app-sidebar class="hidden lg:block" />
       </div>
       <div>
         <main>

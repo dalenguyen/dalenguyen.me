@@ -1,22 +1,26 @@
-import { CommonModule } from "@angular/common";
-import { Component, inject } from "@angular/core";
-import { Router } from "@angular/router";
-import { AvatarModule } from "primeng/avatar";
-import { ButtonModule } from "primeng/button";
-import { DividerModule } from "primeng/divider";
+import { CommonModule } from '@angular/common'
+import { Component, inject } from '@angular/core'
+import { Router } from '@angular/router'
+import { AvatarModule } from 'primeng/avatar'
+import { ButtonModule } from 'primeng/button'
+import { DividerModule } from 'primeng/divider'
 
 @Component({
-  selector: "app-sidebar",
+  selector: 'app-sidebar',
   standalone: true,
   imports: [CommonModule, ButtonModule, AvatarModule, DividerModule],
   template: `
-    <div class="bg-black-alpha-80 p-4 text-white h-full">
+    <div class="bg-black-alpha-80 p-4 text-white h-full min-w-max">
       <!-- Header -->
       <div id="header">
         <div class="top mb-8 text-right">
           <!-- Logo -->
           <div id="logo" class="flex justify-content-between">
-            <p-avatar image="assets/images/dale-nguyen-avatar.jpeg" size="xlarge" shape="square" />
+            <p-avatar
+              image="assets/images/dale-nguyen-avatar.jpeg"
+              size="xlarge"
+              shape="square"
+            />
             <div>
               <h1 id="title" class="m-0">Dale Nguyen</h1>
               <p>Software Engineer</p>
@@ -45,7 +49,10 @@ import { DividerModule } from "primeng/divider";
                 [ngClass]="isActive('blog')"
                 (click)="navigateTo('blog')"
               >
-                <div id="blog-link" class="flex align-items-center justify-content-between">
+                <div
+                  id="blog-link"
+                  class="flex align-items-center justify-content-between"
+                >
                   <i class="pi pi-file-edit" style="font-size: 2rem"></i>
 
                   Thoughts
@@ -76,7 +83,10 @@ import { DividerModule } from "primeng/divider";
                 [ngClass]="isActive('about')"
                 (click)="scroll('about')"
               >
-                <div id="about-link" class="flex align-items-center justify-content-between">
+                <div
+                  id="about-link"
+                  class="flex align-items-center justify-content-between"
+                >
                   <i class="pi pi-user" style="font-size: 2rem"></i>
 
                   Biography
@@ -87,7 +97,10 @@ import { DividerModule } from "primeng/divider";
                 [ngClass]="isActive('contact')"
                 (click)="scroll('contact')"
               >
-                <div id="contact-link" class="flex align-items-center justify-content-between">
+                <div
+                  id="contact-link"
+                  class="flex align-items-center justify-content-between"
+                >
                   <i class="pi pi-envelope" style="font-size: 2rem"></i>
 
                   Contact
@@ -103,23 +116,47 @@ import { DividerModule } from "primeng/divider";
         <div class="mt-8">
           <ul class="list-none p-0 flex justify-content-around">
             <li>
-              <a href="https://www.linkedin.com/in/dalenguyenblogger/" class="icon" target="_blank">
-                <i class="pi pi-linkedin" style="font-size: 2rem; color: white"></i>
+              <a
+                href="https://www.linkedin.com/in/dalenguyenblogger/"
+                class="icon"
+                target="_blank"
+              >
+                <i
+                  class="pi pi-linkedin"
+                  style="font-size: 2rem; color: white"
+                ></i>
               </a>
             </li>
             <li>
-              <a href="https://github.com/dalenguyen" class="icon" target="_blank">
-                <i class="pi pi-github" style="font-size: 2rem; color: white"></i>
+              <a
+                href="https://github.com/dalenguyen"
+                class="icon"
+                target="_blank"
+              >
+                <i
+                  class="pi pi-github"
+                  style="font-size: 2rem; color: white"
+                ></i>
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/dale_nguyen" class="icon" target="_blank">
-                <i class="pi pi-twitter" style="font-size: 2rem; color: white"></i>
+              <a
+                href="https://twitter.com/dale_nguyen"
+                class="icon"
+                target="_blank"
+              >
+                <i
+                  class="pi pi-twitter"
+                  style="font-size: 2rem; color: white"
+                ></i>
               </a>
             </li>
             <li>
               <a href="mailto:dale@dalenguyen.me" class="icon">
-                <i class="pi pi-envelope" style="font-size: 2rem; color: white"></i>
+                <i
+                  class="pi pi-envelope"
+                  style="font-size: 2rem; color: white"
+                ></i>
               </a>
             </li>
           </ul>
@@ -129,20 +166,20 @@ import { DividerModule } from "primeng/divider";
   `,
 })
 export class SidebarComponent {
-  private router = inject(Router);
+  private router = inject(Router)
   // private navService = inject(NavService)
 
-  activeEl = "intro";
+  activeEl = 'intro'
 
   scroll(id: string) {
     // TODO: figured out how to navigate on mobile
-    this.activeEl = id;
-    if (this.router.url !== "/") {
-      this.router.navigate([""]);
+    this.activeEl = id
+    if (this.router.url !== '/') {
+      this.router.navigate([''])
       setTimeout(() => {
         // this.navService.scroll(id)
         // this.navService.target.next(null)
-      }, 1000);
+      }, 1000)
     } else {
       // this.navService.scroll(id)
       // this.navService.target.next(null)
@@ -151,8 +188,8 @@ export class SidebarComponent {
 
   isActive(id: string) {
     if (id === this.activeEl) {
-      return "active";
+      return 'active'
     }
-    return "";
+    return ''
   }
 }

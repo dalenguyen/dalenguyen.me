@@ -6,7 +6,7 @@ import { Component } from '@angular/core'
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="overflow-hidden bg-white " id="about">
+    <div class="overflow-hidden bg-white" id="about">
       <div class="relative mx-auto py-8 px-6 lg:px-8">
         <div
           class="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8"
@@ -127,6 +127,5 @@ import { Component } from '@angular/core'
       </div>
     </div>
   `,
-  styles: ``,
 })
 export class BiographyComponent {}

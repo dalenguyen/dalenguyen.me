@@ -7,7 +7,7 @@ import { Component } from '@angular/core'
   imports: [CommonModule],
   template: `
     <div class="overflow-hidden bg-white" id="about">
-      <div class="relative mx-auto py-8 px-6 lg:px-8">
+      <div class="relative mx-auto py-4 lg:py-8 px-4 lg:px-8">
         <div
           class="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8"
         >
@@ -58,12 +58,11 @@ import { Component } from '@angular/core'
             </svg>
             <div class="relative mx-auto max-w-prose text-base lg:max-w-none">
               <figure>
-                <div class="aspect-w-12 aspect-h-7 lg:aspect-none">
+                <div>
                   <img
-                    class="rounded-lg object-cover object-center shadow-lg"
+                    class="rounded-lg object-cover object-center shadow-lg w-full"
                     src="assets/images/home/biography.jpg"
                     alt="Dale is Kensington market"
-                    width="427px"
                   />
                 </div>
                 <figcaption
@@ -90,6 +89,7 @@ import { Component } from '@angular/core'
               </figure>
             </div>
           </div>
+
           <div class="col-12 lg:col-6">
             <div class="mx-auto max-w-prose text-base lg:max-w-none">
               <p class="text-lg text-gray-500">

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { StyleClassModule } from 'primeng/styleclass';
-import { FooterComponent } from './libs/shell/footer/footer.component';
-import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component';
+import { Component } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
+import { StyleClassModule } from 'primeng/styleclass'
+import { FooterComponent } from './libs/shell/footer/footer.component'
+import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component'
 
 @Component({
   selector: 'app-root',
@@ -11,12 +11,14 @@ import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component
     <div class="flex h-full">
       <div class="flex flex-row-reverse">
         <a
-          class="cursor-pointer block lg:hidden"
+          class="cursor-pointer block lg:hidden fixed top-0 right-0 z-1"
           pStyleClass="@next"
           enterFromClass="hidden"
           leaveToClass="hidden"
         >
-          <i class="pi pi-bars text-4xl"></i>
+          <i
+            class="pi pi-bars text-4xl surface-500 border-round opacity-60 p-1"
+          ></i>
         </a>
         <app-sidebar class="hidden lg:block" />
       </div>

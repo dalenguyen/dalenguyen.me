@@ -14,7 +14,7 @@ import { NavService } from '../../../shared/services'
     <div class="bg-black-alpha-80 p-4 text-white h-full min-w-max">
       <!-- Header -->
       <div id="header">
-        <div class="top mb-8 text-right">
+        <div class="top mb-8 text-right ">
           <!-- Logo -->
           <div id="logo" class="flex justify-content-between">
             <p-avatar
@@ -185,6 +185,12 @@ export class SidebarComponent {
       this.navService.navigateTo(id)
       this.navService.target.next(null)
     }
+  }
+
+  navigateTo(slug: string) {
+    this.activeEl = 'blog'
+    this.router.navigate([slug])
+    this.navService.target.next(null)
   }
 
   isActive(id: string) {

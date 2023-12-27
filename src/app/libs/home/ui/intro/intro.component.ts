@@ -1,15 +1,23 @@
-import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { ButtonModule } from "primeng/button";
-import { RippleModule } from "primeng/ripple";
+import { CommonModule } from '@angular/common'
+import { Component, inject } from '@angular/core'
+import { ButtonModule } from 'primeng/button'
+import { RippleModule } from 'primeng/ripple'
+import { NavService } from '../../../shared/services'
 
 @Component({
-  selector: "app-intro",
+  selector: 'app-intro',
   standalone: true,
   imports: [CommonModule, ButtonModule, RippleModule],
   template: `
-    <div id="intro" class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-      <img src="assets/images/home/intro.jpg" alt="hero image" class="absolute inset-0 h-full w-full object-cover" />
+    <div
+      id="intro"
+      class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32"
+    >
+      <img
+        src="assets/images/home/intro.jpg"
+        alt="hero image"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1097 845"
@@ -62,18 +70,28 @@ import { RippleModule } from "primeng/ripple";
       </svg>
 
       <div class="mx-auto max-w-2xl text-center relative px-6 lg:px-8">
-        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Howdy 👋</h2>
+        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          Howdy 👋
+        </h2>
         <p class="my-6 text-lg leading-8 text-gray-300">
-          My name is Dale Nguyen. I am a Toronto based digital architect. My competent professional work environments
-          are Angular, GCP, NodeJS, JavaScript/TypeScript, SQL/NoSQL, HTML5 and CSS, Linux, Docker...
+          My name is Dale Nguyen. I am a Toronto based digital architect. My
+          competent professional work environments are Angular, GCP, NodeJS,
+          JavaScript/TypeScript, SQL/NoSQL, HTML5 and CSS, Linux, Docker...
         </p>
 
         <div class="mb-6">
-          <p-button pRipple label="Let's meet" icon="pi pi-arrow-down" />
+          <p-button
+            pRipple
+            label="Let's meet"
+            icon="pi pi-arrow-down"
+            (click)="navService.navigateTo('contact')"
+          />
         </div>
       </div>
     </div>
   `,
   styles: ``,
 })
-export class IntroComponent {}
+export class IntroComponent {
+  navService = inject(NavService)
+}

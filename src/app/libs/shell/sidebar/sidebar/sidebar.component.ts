@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { AvatarModule } from 'primeng/avatar'
 import { ButtonModule } from 'primeng/button'
 import { DividerModule } from 'primeng/divider'
+import { NavService } from '../../../shared/services'
 
 @Component({
   selector: 'app-sidebar',
@@ -167,7 +168,7 @@ import { DividerModule } from 'primeng/divider'
 })
 export class SidebarComponent {
   private router = inject(Router)
-  // private navService = inject(NavService)
+  private navService = inject(NavService)
 
   activeEl = 'intro'
 
@@ -177,12 +178,12 @@ export class SidebarComponent {
     if (this.router.url !== '/') {
       this.router.navigate([''])
       setTimeout(() => {
-        // this.navService.scroll(id)
-        // this.navService.target.next(null)
+        this.navService.navigateTo(id)
+        this.navService.target.next(null)
       }, 1000)
     } else {
-      // this.navService.scroll(id)
-      // this.navService.target.next(null)
+      this.navService.navigateTo(id)
+      this.navService.target.next(null)
     }
   }
 

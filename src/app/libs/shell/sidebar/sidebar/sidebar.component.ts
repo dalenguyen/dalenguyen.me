@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { AvatarModule } from 'primeng/avatar'
 import { ButtonModule } from 'primeng/button'
 import { DividerModule } from 'primeng/divider'
-import { NavService } from '../../../shared/services'
+import { NavService, SidebarService } from '../../../shared/services'
 
 @Component({
   selector: 'app-sidebar',
@@ -169,8 +169,20 @@ import { NavService } from '../../../shared/services'
 export class SidebarComponent {
   private router = inject(Router)
   private navService = inject(NavService)
+  private sidebarService = inject(SidebarService)
 
   activeEl = 'intro'
+
+  // @HostListener('document:click', ['$event'])
+  // clickedOut(event: Event & { target: HTMLElement }) {
+  //   if (
+  //     event.target?.id !== 'header' &&
+  //     !event.target?.className.includes('list-none')
+  //   ) {
+  //     console.log('CLOSE????')
+  //     this.sidebarService.closeSidebar()
+  //   }
+  // }
 
   scroll(id: string) {
     // TODO: figured out how to navigate on mobile

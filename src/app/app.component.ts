@@ -14,18 +14,7 @@ import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component
   template: `
     <div class="flex h-full">
       <div class="flex flex-row-reverse">
-        <!-- <a
-          class="cursor-pointer block lg:hidden fixed top-0 right-0 z-1"
-          pStyleClass="@next"
-          enterFromClass="hidden"
-          leaveToClass="hidden"
-        >
-          <i
-            class="pi pi-bars text-4xl surface-500 border-round opacity-60 p-1"
-          ></i>
-        </a> -->
-
-        <div class="fixed z-1 top-0 left-0">
+        <div class="fixed lg:hidden z-1 top-0 left-0 mt-1 ml-1">
           <p-button
             icon="pi pi-bars"
             (click)="sidebarService.toggleSidebar()"
@@ -34,12 +23,8 @@ import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component
           />
         </div>
 
-        <!-- <i
-          class="pi pi-bars text-4xl surface-500 border-round opacity-60 p-1"
-        ></i> -->
-
         @if (sidebarService.showSidebar()) {
-          <app-sidebar class="lg:block z-2" />
+          <app-sidebar class="block z-2" />
         }
       </div>
       <div>

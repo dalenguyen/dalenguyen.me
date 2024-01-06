@@ -186,17 +186,21 @@ export class SidebarComponent {
 
   scroll(id: string) {
     // TODO: figured out how to navigate on mobile
-    this.activeEl = id
-    if (this.router.url !== '/') {
-      this.router.navigate([''])
-      setTimeout(() => {
+    this.sidebarService.closeSidebar()
+
+    setTimeout(() => {
+      this.activeEl = id
+      if (this.router.url !== '/') {
+        this.router.navigate([''])
+        setTimeout(() => {
+          this.navService.navigateTo(id)
+          this.navService.target.next(null)
+        }, 1000)
+      } else {
         this.navService.navigateTo(id)
         this.navService.target.next(null)
-      }, 1000)
-    } else {
-      this.navService.navigateTo(id)
-      this.navService.target.next(null)
-    }
+      }
+    }, 500)
   }
 
   navigateTo(slug: string) {

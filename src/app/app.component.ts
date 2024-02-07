@@ -14,16 +14,20 @@ import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component
   template: `
     <div class="flex h-full">
       <div class="flex flex-row-reverse">
-        <div class="fixed lg:hidden z-1 top-0 left-0 mt-1 ml-1">
-          <p-button
-            icon="pi pi-bars"
-            (click)="sidebarService.toggleSidebar()"
-            severity="secondary"
-            size="small"
-          />
-        </div>
-
-        @if (sidebarService.showSidebar()) {
+        @if (sidebarService.showSidebar() === false) {
+          <div class="fixed lg:hidden z-1 top-0 left-0 mt-1 ml-1">
+            <p-button
+              icon="pi pi-bars"
+              (click)="sidebarService.toggleSidebar()"
+              severity="secondary"
+              size="small"
+            />
+          </div>
+        } @else {
+          <div
+            class="backdrop w-screen sm:hidden opacity-0 z-1 absolute left-0 top-0 h-screen"
+            (click)="sidebarService.closeSidebar()"
+          ></div>
           <app-sidebar class="block z-2" />
         }
       </div>

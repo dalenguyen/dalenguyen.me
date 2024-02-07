@@ -1,9 +1,11 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { CommonModule } from '@angular/common'
 import { Component, inject } from '@angular/core'
 import { Router } from '@angular/router'
 import { AvatarModule } from 'primeng/avatar'
 import { ButtonModule } from 'primeng/button'
 import { DividerModule } from 'primeng/divider'
+import { take } from 'rxjs'
 import { NavService, SidebarService } from '../../../shared/services'
 
 @Component({
@@ -169,25 +171,13 @@ import { NavService, SidebarService } from '../../../shared/services'
 export class SidebarComponent {
   private router = inject(Router)
   private navService = inject(NavService)
-  private sidebarService = inject(SidebarService)
+  sidebarService = inject(SidebarService)
+
+  private breakpointObserver = inject(BreakpointObserver)
 
   activeEl = 'intro'
 
-  // @HostListener('document:click', ['$event'])
-  // clickedOut(event: Event & { target: HTMLElement }) {
-  //   if (
-  //     event.target?.id !== 'header' &&
-  //     !event.target?.className.includes('list-none')
-  //   ) {
-  //     console.log('CLOSE????')
-  //     this.sidebarService.closeSidebar()
-  //   }
-  // }
-
   scroll(id: string) {
-    // TODO: figured out how to navigate on mobile
-    this.sidebarService.closeSidebar()
-
     setTimeout(() => {
       this.activeEl = id
       if (this.router.url !== '/') {
@@ -201,6 +191,15 @@ export class SidebarComponent {
         this.navService.target.next(null)
       }
     }, 500)
+
+    this.breakpointObserver
+      .observe([Breakpoints.XSmall])
+      .pipe(take(1))
+      .subscribe((result) => {
+        if (result.matches) {
+          this.sidebarService.closeSidebar()
+        }
+      })
   }
 
   navigateTo(slug: string) {

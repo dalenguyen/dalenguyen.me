@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
 import * as fs from 'fs';
+import { defineConfig } from 'vite';
 const posts = fs.readdirSync('./src/content');
 
 // https://vitejs.dev/config/
@@ -10,6 +10,11 @@ export default defineConfig(({ mode }) => ({
   root: '',
   build: {
     target: ['es2020'],
+  },
+  server: {
+    fs: {
+      allow: ['.'],
+    },
   },
   optimizeDeps: {
     include: ['@angular/common'],

@@ -9,5 +9,13 @@ import { RouterOutlet } from '@angular/router'
 
     <router-outlet />
   `,
+  styles: `
+
+  :host {
+    display: block;
+    padding: 0 2rem;
+    height: 100vh;
+  }
+  `
 })
 export default class Blog {}

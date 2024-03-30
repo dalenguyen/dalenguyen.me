@@ -31,7 +31,7 @@ import { SidebarComponent } from './libs/shell/sidebar/sidebar/sidebar.component
           <app-sidebar class="block z-2" />
         }
       </div>
-      <div>
+      <div class="overflow-scroll w-full">
         <main>
           <router-outlet />
         </main>

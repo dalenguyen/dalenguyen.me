@@ -15,8 +15,8 @@ import { NavService, SidebarService } from '../../../shared/services'
   template: `
     <div class="bg-black-alpha-80 p-4 text-white h-full min-w-max">
       <!-- Header -->
-      <div id="header">
-        <div class="top mb-8 text-right ">
+      <div id="header" class="h-full flex flex-column justify-content-between">
+        <div class="top text-right ">
           <!-- Logo -->
           <div id="logo" class="flex justify-content-between">
             <p-avatar
@@ -32,23 +32,22 @@ import { NavService, SidebarService } from '../../../shared/services'
           </div>
         </div>
 
-        <div class="mb-8">
           <!-- Nav -->
-          <nav id="nav">
+          <nav id="nav mb-6">
             <ul class="list-none p-0">
               <li
-                class="p-2 mb-6 font-semibold text-xl cursor-pointer"
+                class="p-2 mb-4 font-semibold text-lg cursor-pointer"
                 [ngClass]="isActive('intro')"
                 (click)="scroll('intro')"
               >
-                <div id="top-link" class="flex align-content-center">
+                <div id="top-link" class="flex align-items-center">
                   <i class="pi pi-home mr-4" style="font-size: 2rem"></i>
 
                   Architectural Philosophy
                 </div>
               </li>
               <li
-                class="p-2 mb-6 font-semibold text-xl cursor-pointer"
+                class="p-2 mb-4 font-semibold text-lg cursor-pointer"
                 [ngClass]="isActive('blog')"
                 (click)="navigateTo('blog')"
               >
@@ -82,7 +81,7 @@ import { NavService, SidebarService } from '../../../shared/services'
           </div>
         </li> -->
               <li
-                class="p-2 mb-6 font-semibold text-xl cursor-pointer"
+                class="p-2 mb-4 font-semibold text-lg cursor-pointer"
                 [ngClass]="isActive('about')"
                 (click)="scroll('about')"
               >
@@ -96,7 +95,7 @@ import { NavService, SidebarService } from '../../../shared/services'
                 </div>
               </li>
               <li
-                class="p-2 mb-6 font-semibold text-xl cursor-pointer"
+                class="p-2 mb-4 font-semibold text-lg cursor-pointer"
                 [ngClass]="isActive('contact')"
                 (click)="scroll('contact')"
               >
@@ -111,60 +110,58 @@ import { NavService, SidebarService } from '../../../shared/services'
               </li>
             </ul>
           </nav>
-        </div>
 
-        <p-divider />
-
-        <!-- Social Icons -->
-        <div class="mt-8">
-          <ul class="list-none p-0 flex justify-content-around">
-            <li>
-              <a
-                href="https://www.linkedin.com/in/dalenguyenblogger/"
-                class="icon"
-                target="_blank"
-              >
-                <i
-                  class="pi pi-linkedin"
-                  style="font-size: 2rem; color: white"
-                ></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/dalenguyen"
-                class="icon"
-                target="_blank"
-              >
-                <i
-                  class="pi pi-github"
-                  style="font-size: 2rem; color: white"
-                ></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/dale_nguyen"
-                class="icon"
-                target="_blank"
-              >
-                <i
-                  class="pi pi-twitter"
-                  style="font-size: 2rem; color: white"
-                ></i>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:dale@dalenguyen.me" class="icon">
-                <i
-                  class="pi pi-envelope"
-                  style="font-size: 2rem; color: white"
-                ></i>
-              </a>
-            </li>
-          </ul>
+        <div>
+          <p-divider />
+          <!-- Social Icons -->
+            <ul class="list-none p-0 flex justify-content-around">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/dalenguyenblogger/"
+                  class="icon"
+                  target="_blank"
+                >
+                  <i
+                    class="pi pi-linkedin"
+                    style="font-size: 2rem; color: white"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/dalenguyen"
+                  class="icon"
+                  target="_blank"
+                >
+                  <i
+                    class="pi pi-github"
+                    style="font-size: 2rem; color: white"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/dale_nguyen"
+                  class="icon"
+                  target="_blank"
+                >
+                  <i
+                    class="pi pi-twitter"
+                    style="font-size: 2rem; color: white"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:dale@dalenguyen.me" class="icon">
+                  <i
+                    class="pi pi-envelope"
+                    style="font-size: 2rem; color: white"
+                  ></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
     </div>
   `,
 })
